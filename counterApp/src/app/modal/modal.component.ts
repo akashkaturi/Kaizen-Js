@@ -12,8 +12,9 @@ import {NgIf} from "@angular/common";
 })
 export class ModalComponent {
     @Input() isOpen = false;
-    @Input() counter=0;
     @Output() isOpenChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+    @Input() counter=0;
     @Output() resetCounterEvent: EventEmitter<any> = new EventEmitter<void>();
 
     closeModal() {

@@ -1,6 +1,20 @@
 <div class="flex flex-col justify-center items-center h-screen">
     <div>
+        <form [formGroup]="counterForm" class="flex justify-center items-center">
+            <div>
+                <label for="lower-limit" class="text-2xl">LOWER LIMIT: </label>
+                <p class="text-xs text-pink-400">-2,147,483,648 to -1</p>
+            </div>
+            <input id="lower-limit" type="text" formControlName="lowerLimit" class="input-style"
+                   >
+            <div>
+                <label for="higher-limit" class="text-2xl">HIGHER LIMIT: </label>
+                <p class="text-xs text-pink-400">1 to 2,147,483,647</p>
+            </div>
+            <input id="higher-limit" type="text" formControlName="higherLimit" class="input-style"
+                  >
 
+        </form>
         <br/>
         <h1 class="text-4xl text-bold text-center mb-5">{{ countNumber }}</h1>
         <br/>
@@ -8,6 +22,7 @@
             <app-button [buttonText]="increase" (click)="increaseCount()"></app-button>
             <app-button [buttonText]="decrease" (click)="decreaseCount()"></app-button>
             <app-button [buttonText]="reset" (click)="resetCounter()"></app-button>
+            <app-button [buttonText]="resetLimit" (click)="resetLimits()"></app-button>
 
         </div>
         <app-modal [(isOpen)]="isModalOpen" (resetCounterEvent)="resetCounter()" [counter]="countNumber"></app-modal>
