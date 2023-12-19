@@ -1,0 +1,17 @@
+<div class="flex flex-col justify-center items-center h-screen">
+    <div>
+
+        <br/>
+        <h1 class="text-4xl text-bold text-center mb-5">{{ countNumber }}</h1>
+        <br/>
+        <div class="flex flex-row items-center justify-center space-x-4">
+            <app-button [buttonText]="increase" (click)="increaseCount()"></app-button>
+            <app-button [buttonText]="decrease" (click)="decreaseCount()"></app-button>
+            <app-button [buttonText]="reset" (click)="resetCounter()"></app-button>
+
+        </div>
+        <app-modal [(isOpen)]="isModalOpen" (resetCounterEvent)="resetCounter()" [counter]="countNumber"></app-modal>
+
+
+    </div>
+    <router-outlet></router-outlet>
