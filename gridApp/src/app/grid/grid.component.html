@@ -1,0 +1,14 @@
+<div class="">
+    <div class="grid grid-cols-3">
+        <app-cell *ngFor="let cell of gridData" [cellValue]="cell" [state]="state" [block]="block"></app-cell>
+
+    </div>
+    <div class="controls grid grid-rows-3 grid-cols-3 gap-4">
+        <button class="row-start-1 col-start-1 col-span-3" (click)="up()">Up</button>
+        <button class="row-start-2 col-start-1" (click)="left()">Left</button>
+        <button class="row-start-2 col-start-3" (click)="right()">Right</button>
+        <button class="row-start-3 col-start-1 col-span-3" (click)="down()">Down</button>
+    </div>
+    <div *ngIf="action" class="action-feedback">{{ action }}</div>
+
+</div>
