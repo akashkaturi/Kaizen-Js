@@ -8,4 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'receipe-app';
+  recepieData:any;
+  getRecepies(data:string):void{
+    this.recepieData=data;
+  }
 }

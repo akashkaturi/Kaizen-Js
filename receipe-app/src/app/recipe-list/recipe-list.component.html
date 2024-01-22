@@ -1,3 +1,7 @@
-<!--<div *ngFor="let recipe of recipes">-->
-<!--  <app-recipe-card [recipe]="recipe"></app-recipe-card>-->
-<!--</div>-->
+<div *ngFor="let recipe of recepieData.hits" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+    <div class="border-black border-2 p-4">
+        <h2 class="text-sm">{{ recipe.recipe.label.charAt(0).toUpperCase() + recipe.recipe.label.slice(1) }}</h2>
+        <p class="text-sm">Cuisine Type: {{ recipe.recipe.cuisineType.join(', ').toUpperCase() }}</p>
+        <img [src]="recipe.recipe.image" alt="Recipe Image" class="w-full h-auto"/>
+    </div>
+</div>

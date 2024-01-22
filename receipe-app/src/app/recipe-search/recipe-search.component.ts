@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
 import {RecipeService} from "../recipe.service";
 
 @Component({
@@ -13,12 +13,17 @@ export class RecipeSearchComponent implements OnInit {
 
     ngOnInit(): void {
     }
+
+    responseRecepies: any;
+
     searchTerm: string = '';
+    @Output() recepies: EventEmitter<any> = new EventEmitter<any>()
 
     search(): void {
         if (this.searchTerm) {
             this.recipeService.searchRecipes(this.searchTerm).subscribe(
                 (response) => {
+                    this.recepies.emit()
                     console.log(response); // Handle the response as needed
                 },
                 (error) => {
@@ -27,5 +32,6 @@ export class RecipeSearchComponent implements OnInit {
             );
         }
     }
+
 
 }
